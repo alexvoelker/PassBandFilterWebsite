@@ -24,7 +24,6 @@ def perform_API_request(image_id: int, data: dict) -> str:
             and isinstance(request_data["Boost Contrast"], float)):
         return ''
 
-    # TODO Add the ability to set specific geographic coordinates via geojson
     file_name = f"image_responses/image_{image_id}.jpg"
 
     out = requests.post(API_URL, json=request_data, timeout=None)
@@ -55,7 +54,6 @@ def home_page():
     if flask_request.method == "POST":
         geo_json_data = generate_GEO_JSON(float(flask_request.form['x1']), float(flask_request.form['y1']),
                                           float(flask_request.form['x2']), float(flask_request.form['y2']))
-        print(geo_json_data)
         data = {'filterType': flask_request.form['filterType'],
                 'contrastLevel': float(flask_request.form['contrastLevel']),
                 'maxCloud': float(flask_request.form['maxCloud']),
