@@ -63,6 +63,7 @@ def home_page():
             image_count_file.write(str(image_response_id + 1))
 
         # TODO get website to display full image
+        # TODO add user's image settings to response page
         return render_template('response.html', image=image)
     elif flask_request.method == "GET":
         return render_template('index.html')
