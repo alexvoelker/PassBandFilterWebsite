@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="light dark">
+    <title>500 Internal Server Error</title>
+</head>
+<body align="center">
+    <div role="main" align="center">
+        <h1>500: Internal Server Error</h1>
+        <p>The server encountered an internal error while processing this request.</p>
+        <hr />
+    </div>
+    <div role="contentinfo" align="center">
+        <small>Rocket</small>
+    </div>
+</body>
+</html>

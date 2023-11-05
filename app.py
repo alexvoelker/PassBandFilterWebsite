@@ -10,19 +10,16 @@ API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
 def perform_API_request(image_id: int, data: dict) -> str:
     """Performs an API request to the backend. Returns the file name of the created image."""
-    file = open("geo.json")
-    geo_file_json = json.load(file)
 
     request_data = {
         "Max Cloud Coverage": data['maxCloud'],
-        "GeoJson": geo_file_json,
+        "GeoJson": data['GeoJson'],
         "Filter": data['filterType'],
         "Boost Contrast": data['contrastLevel'],
     }
 
     # Validate request data input
     if not (isinstance(request_data["Max Cloud Coverage"], float)
-            and isinstance(request_data["GeoJson"], dict)
             and isinstance(request_data["Filter"], str)
             and isinstance(request_data["Boost Contrast"], float)):
         return ''
@@ -39,12 +36,30 @@ def perform_API_request(image_id: int, data: dict) -> str:
     return file_name
 
 
+def generate_GEO_JSON(x1: float, y1: float, x2: float, y2: float):
+    # TODO make this work
+    json_data = {
+        "type": "FeatureCollection",
+        "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates": [
+            [[y1, x1],
+             [y1, x2],
+             [y2, x2],
+             [y2, x1],
+             [y1, x1]
+             ]], "type": "Polygon"}}]}
+    return json_data
+
+
 @app.route('/', methods=["GET", "POST"])
 def home_page():
     if flask_request.method == "POST":
+        geo_json_data = generate_GEO_JSON(float(flask_request.form['x1']), float(flask_request.form['y1']),
+                                          float(flask_request.form['x2']), float(flask_request.form['y2']))
+        print(geo_json_data)
         data = {'filterType': flask_request.form['filterType'],
                 'contrastLevel': float(flask_request.form['contrastLevel']),
-                'maxCloud': float(flask_request.form['maxCloud'])}
+                'maxCloud': float(flask_request.form['maxCloud']),
+                'GeoJson': geo_json_data}
 
         # get the unique counter for the image file name
         with open('image_count', 'r') as image_count_file:
