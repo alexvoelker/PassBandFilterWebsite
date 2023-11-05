@@ -43,6 +43,7 @@ def home_page():
                 'contrastLevel': float(flreq.form['contrastLevel']),
                 'maxCloud': float(flreq.form['maxCloud'])}
         image = perform_API_request(data)
+        # TODO get website to display full image
         return render_template('response.html', image=image)
     elif flreq.method == "GET":
         return render_template('index.html')
