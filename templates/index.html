@@ -98,9 +98,9 @@
 </head>
 <body>
 <link rel="stylesheet" href="{{ url_for("static", filename="css/style.css") }}"/>
+
 <div>
     <link href="{{ url_for('static', filename="css/index.css") }}" rel="stylesheet"/>
-
     <div class="home-container">
         <div class="home-container01"></div>
         <h1 class="home-text">Input Data Form</h1>
@@ -110,40 +110,76 @@
                     <div class="home-container04">
                         <div class="home-container05">
                             <label class="home-text1">Max Cloud Coverage (float):</label>
-                            <label class="home-text2">
-                                Boost Contrast Level (float):
-                            </label>
+                            <label class="home-text2">Boost Contrast Level (float):</label>
                             <label class="home-text3">Filter:</label>
+                            <label class="home-text4">Coordinate 1 (latitude):</label>
+                            <label class="home-text5">Coordinate 1 (longitude):</label>
+                            <label class="home-text6">Coordinate 2 (latitude):</label>
+                            <label class="home-text7">Coordinate 2 (longitude):</label>
                         </div>
                         <div class="home-container06">
                             <input
                                     type="number"
-                                    placeholder="1.0"
                                     id="maxCloud"
                                     name="maxCloud"
-                                    required=""
+                                    required
+                                    placeholder="1.0"
                                     class="home-textinput input"
                             />
                             <input
                                     type="number"
-                                    placeholder="2.0"
-                                    required=""
                                     id="contrastLevel"
                                     name="contrastLevel"
+                                    required
+                                    placeholder="2.0"
                                     class="home-textinput1 input"
                             />
-                            <select required="" id="filterType" name='filterType' class="home-select">
-                                <option value="False Color" selected="">False Color</option>
-                                <option value="Option 2">Option 2</option>
+                            <select id="filterType" name="filterType" required class="home-select">
+                                <option value="True Color" selected>True Color</option>
+                                <option value="False Color">False Color</option>
+                                <option value="NDWI">NDWI</option>
+                                <option value="SWIR">SWIR</option>
                             </select>
+                            <input
+                                    type="number"
+                                    id="x1"
+                                    required
+                                    placeholder="24.711867107705018"
+                                    name="x1"
+                                    value="24.711867107705018"
+                                    class="home-textinput2 input"
+                            />
+                            <input
+                                    type="number"
+                                    id="y1"
+                                    required
+                                    placeholder="-81.86215875525929"
+                                    name="y1"
+                                    value="-81.86215875525929"
+                                    class="home-textinput3 input"
+                            />
+                            <input
+                                    type="number"
+                                    id="x2"
+                                    required
+                                    placeholder="24.514016627717794"
+                                    name="x2"
+                                    value="24.514016627717794"
+                                    class="home-textinput4 input"
+                            />
+                            <input
+                                    type="number"
+                                    id="y2"
+                                    required
+                                    placeholder="-81.62540358710271"
+                                    name="y2"
+                                    value="-81.62540358710271"
+                                    class="home-textinput5 input"
+                            />
                         </div>
                     </div>
                     <div class="home-container07">
-                        <button
-                                type="submit"
-                                id="submitButton"
-                                class="home-button button"
-                        >
+                        <button id="submitButton" type="submit" class="home-button button">
                             Submit
                         </button>
                     </div>
@@ -154,5 +190,6 @@
         <div class="home-container09"></div>
     </div>
 </div>
+
 </body>
 </html>
