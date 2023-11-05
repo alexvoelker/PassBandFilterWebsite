@@ -10,9 +10,8 @@ image_response_id = 0
 API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
 
-def perform_API_request(data: dict) -> str:
+def perform_API_request(image_id: int, data: dict) -> str:
     """Performs an API request to the backend. Returns the file name of the image created. """
-    global image_response_id
     file = open("geo.json")
     geo_file_json = json.load(file)
 
@@ -25,7 +24,6 @@ def perform_API_request(data: dict) -> str:
 
     # TODO Add the ability to set specific geographic coordinates via geojson
     file_name = f"image_responses/image_{image_response_id}.jpg"
-    image_response_id += 1
 
     out = requests.post(API_URL, json=request_data, timeout=None)
 
@@ -38,11 +36,13 @@ def perform_API_request(data: dict) -> str:
 
 @app.route('/', methods=["GET", "POST"])
 def home_page():
+    global image_response_id
     if flreq.method == "POST":
         data = {'filterType': flreq.form['filterType'],
                 'contrastLevel': float(flreq.form['contrastLevel']),
                 'maxCloud': float(flreq.form['maxCloud'])}
-        image = perform_API_request(data)
+        image_response_id += 1
+        image = perform_API_request(image_response_id, data)
         # TODO get website to display full image
         return render_template('response.html', image=image)
     elif flreq.method == "GET":
