@@ -66,14 +66,15 @@ def home_page():
                 image_response_id = 0
             else:
                 image_response_id = int(image_count_raw)
-            image = perform_API_request(image_response_id, data)
-
-            if len(image) == 0:  # Handling Invalid Inputs
-                abort(400)
 
         # Write the updated image file counter to the file
         with open('image_count', 'w') as image_count_file:
             image_count_file.write(str(image_response_id + 1))
+
+        image = perform_API_request(image_response_id, data)
+
+        if len(image) == 0:  # Handling Invalid Inputs
+            abort(400)
 
         # TODO get website to display full image
         # TODO add user's image settings to response page
