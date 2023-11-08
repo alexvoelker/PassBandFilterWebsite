@@ -1,6 +1,9 @@
+import os
+
 from flask import Flask, render_template, abort
 from flask import request as flask_request
 import requests
+import json
 
 app = Flask(__name__)
 
@@ -35,6 +38,7 @@ def perform_API_request(image_id: int, data: dict) -> str:
 
 
 def generate_GEO_JSON(x1: float, y1: float, x2: float, y2: float):
+    # TODO make this work
     json_data = {
         "type": "FeatureCollection",
         "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates": [
@@ -92,4 +96,5 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = os.getenv("PORT")
+    app.run(debug=False, port=port, host="0.0.0.0")
