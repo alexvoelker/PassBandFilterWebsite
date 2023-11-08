@@ -1,4 +1,5 @@
-venv/
+*.jpg
+venv
 Testing/
 teleporthq_link.txt
 *.jpg

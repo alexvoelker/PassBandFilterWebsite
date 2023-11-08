@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, abort
 from flask import request as flask_request
 import requests
@@ -92,4 +94,5 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = os.getenv("PORT")
+    app.run(debug=False, port=port, host="0.0.0.0")
