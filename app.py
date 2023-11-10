@@ -1,3 +1,6 @@
+import base64
+import json
+import lzma
 import os
 
 from flask import Flask, render_template, abort
@@ -9,10 +12,11 @@ app = Flask(__name__)
 API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
 
-def perform_API_request(image_id: int, data: dict) -> str:
+def new_API_request(data: dict) -> str:
     """Performs an API request to the backend. Returns the file name of the created image."""
 
     request_data = {
+        "Command": "New",
         "Max Cloud Coverage": data['maxCloud'],
         "GeoJson": data['GeoJson'],
         "Filter": data['filterType'],
@@ -25,15 +29,29 @@ def perform_API_request(image_id: int, data: dict) -> str:
             and isinstance(request_data["Boost Contrast"], float)):
         return ''
 
-    file_name = f"image_responses/image_{image_id}.jpg"
+    # make request
+    out = requests.post(API_URL + "/v1", json=request_data, timeout=None)
+    out_data = json.loads(out.content)
 
-    out = requests.post(API_URL, json=request_data, timeout=None)
+    # base64 decode image
+    image_decoded = base64.b64decode(out_data['image'])
 
-    with open(f"static/{file_name}", "wb") as binary_file:
+    # uncompress image
+    image_uncompressed = lzma.decompress(image_decoded)
+
+    # save to file
+    folder = f"image_responses/{out_data['id']}/"
+    file_name = f"{data['filterType']}.jpg"
+    d = f"static/{folder}"
+
+    if not os.path.exists(d):
+        os.makedirs(d)
+
+    with open(d+file_name, "wb+") as binary_file:
         # Write bytes to file
-        binary_file.write(out.content)
+        binary_file.write(image_uncompressed)
 
-    return file_name
+    return folder+file_name
 
 
 def generate_GEO_JSON(x1: float, y1: float, x2: float, y2: float):
@@ -59,19 +77,7 @@ def home_page():
                 'maxCloud': float(flask_request.form['maxCloud']),
                 'GeoJson': geo_json_data}
 
-        # get the unique counter for the image file name
-        with open('image_count', 'r') as image_count_file:
-            image_count_raw = image_count_file.read()
-            if image_count_raw == '':
-                image_response_id = 0
-            else:
-                image_response_id = int(image_count_raw)
-
-        # Write the updated image file counter to the file
-        with open('image_count', 'w') as image_count_file:
-            image_count_file.write(str(image_response_id + 1))
-
-        image = perform_API_request(image_response_id, data)
+        image = new_API_request(data)
 
         if len(image) == 0:  # Handling Invalid Inputs
             abort(400)
