@@ -2,6 +2,7 @@ import base64
 import json
 import lzma
 import os
+
 from flask import Flask, render_template, abort
 from flask import request as flask_request
 import requests
@@ -66,7 +67,7 @@ def generate_GEO_JSON(x1: float, y1: float, x2: float, y2: float):
     return json_data
 
 
-@app.route('/input-page/', methods=["GET", "POST"])
+@app.route('/input-page.html', methods=["GET", "POST"])
 def input_page():
     if flask_request.method == "POST":
         geo_json_data = generate_GEO_JSON(float(flask_request.form['x1']), float(flask_request.form['y1']),
@@ -88,14 +89,14 @@ def input_page():
         return render_template('input-page.html')
 
 
+@app.route('/tutorial-page.html', methods=["GET"])
+def tutorial_page():
+    return render_template('tutorial-page.html')
+
+
 @app.route('/', methods=["GET"])
 def home_page():
     return render_template('index.html')
-
-
-@app.route('/tutorial/', methods=["GET"])
-def tutorial_page():
-    return render_template('tutorial-page.html')
 
 
 @app.errorhandler(404)
