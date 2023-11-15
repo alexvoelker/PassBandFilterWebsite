@@ -203,85 +203,85 @@
 
 </body>
 
-    <script>
+<script>
 
-        let map;
-        let bounds;
-        let gridBoundingBox;
+    let map;
+    let bounds;
+    let gridBoundingBox;
 
-        function initMap() {
-            const myLatlng = {lat: -25.363, lng: 131.044};
+    function initMap() {
+        const myLatlng = {lat: -25.363, lng: 131.044};
 
-            let first = true;
+        let first = true;
 
-            map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 4,
-                center: myLatlng,
-            });
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: myLatlng,
+        });
 
-            // Create the initial InfoWindow.
-            let infoWindow = new google.maps.InfoWindow({
-                content: "Click the map to get Lat/Lng!",
-                position: myLatlng,
-            });
+        // Create the initial InfoWindow.
+        let infoWindow = new google.maps.InfoWindow({
+            content: "Click the map to get Lat/Lng!",
+            position: myLatlng,
+        });
 
-            infoWindow.open(map);
+        infoWindow.open(map);
 
-            var gridBoundingBox = null;
-            var themap = map;
+        var gridBoundingBox = null;
+        var themap = map;
 
-            google.maps.event.addListener(map, 'mousemove', function(e) {
-                if (!first) {
-                    if (gridBoundingBox !== null) // box exists
-                    {
-                        bounds.extend(e.latLng);
-                        gridBoundingBox.setBounds(bounds); // If this statement is enabled, I lose mouseUp events
+        google.maps.event.addListener(map, 'mousemove', function (e) {
+            if (!first) {
+                if (gridBoundingBox !== null) // box exists
+                {
+                    bounds.extend(e.latLng);
+                    gridBoundingBox.setBounds(bounds); // If this statement is enabled, I lose mouseUp events
 
-                    } else // create bounding box
-                    {
-                        bounds = new google.maps.LatLngBounds();
-                        bounds.extend(e.latLng);
-                        gridBoundingBox = new google.maps.Rectangle({
-                            map: themap,
-                            bounds: bounds,
-                            fillOpacity: 0.15,
-                            strokeWeight: 0.9,
-                            clickable: false
-                        });
-                    }
+                } else // create bounding box
+                {
+                    bounds = new google.maps.LatLngBounds();
+                    bounds.extend(e.latLng);
+                    gridBoundingBox = new google.maps.Rectangle({
+                        map: themap,
+                        bounds: bounds,
+                        fillOpacity: 0.15,
+                        strokeWeight: 0.9,
+                        clickable: false
+                    });
                 }
-              });
+            }
+        });
 
-            // Configure the click listener.
-            map.addListener("click", (mapsMouseEvent) => {
-                // Close the current InfoWindow.
-                infoWindow.close();
+        // Configure the click listener.
+        map.addListener("click", (mapsMouseEvent) => {
+            // Close the current InfoWindow.
+            infoWindow.close();
 
-                // Set help Window and field
-                if (first){
-                    // get elements and set
-                    document.getElementById("x1").value = mapsMouseEvent.latLng.lat();
-                    document.getElementById("y1").value = mapsMouseEvent.latLng.lng();
+            // Set help Window and field
+            if (first) {
+                // get elements and set
+                document.getElementById("x1").value = mapsMouseEvent.latLng.lat();
+                document.getElementById("y1").value = mapsMouseEvent.latLng.lng();
 
-                    if (gridBoundingBox !== null){
-                        gridBoundingBox.setMap(null);
-                    }
-
-                    gridBoundingBox = null;
-
-                }else{
-                    // get elements and set
-                    document.getElementById("x2").value = mapsMouseEvent.latLng.lat();
-                    document.getElementById("y2").value = mapsMouseEvent.latLng.lng();
+                if (gridBoundingBox !== null) {
+                    gridBoundingBox.setMap(null);
                 }
 
-                // Flip first
-                first = !first;
-            });
-        }
+                gridBoundingBox = null;
 
-        window.initMap = initMap;
-    </script>
+            } else {
+                // get elements and set
+                document.getElementById("x2").value = mapsMouseEvent.latLng.lat();
+                document.getElementById("y2").value = mapsMouseEvent.latLng.lng();
+            }
+
+            // Flip first
+            first = !first;
+        });
+    }
+
+    window.initMap = initMap;
+</script>
 
 <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfMW4vguenAbUWsPEMAW46gukC_ZLT0Qw&callback=initMap&v=weekly"
