@@ -67,8 +67,8 @@ def generate_GEO_JSON(x1: float, y1: float, x2: float, y2: float):
     return json_data
 
 
-@app.route('/', methods=["GET", "POST"])
-def home_page():
+@app.route('/input-page.html', methods=["GET"])
+def input_page():
     if flask_request.method == "POST":
         geo_json_data = generate_GEO_JSON(float(flask_request.form['x1']), float(flask_request.form['y1']),
                                           float(flask_request.form['x2']), float(flask_request.form['y2']))
@@ -86,7 +86,11 @@ def home_page():
         # TODO add user's image settings to response page
         return render_template('response.html', image=image)
     elif flask_request.method == "GET":
-        return render_template('index.html')
+        return render_template('input-page.html')
+
+@app.route('/', methods=["GET"])
+def home_page():
+    return render_template('index.html')
 
 
 @app.errorhandler(404)
