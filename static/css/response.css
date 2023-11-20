@@ -371,8 +371,8 @@ body {
   margin-bottom: var(--dl-space-space-halfunit);
 }
 .home1-image {
-  width: 703px;
-  height: 406px;
+  width: 25%;
+  height: 25%;
   object-fit: cover;
 }
 .home1-container09 {
@@ -382,4 +382,25 @@ body {
   align-items: flex-start;
   flex-direction: column;
   background-color: var(--dl-color-gray-headings);
+}
+
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 300px;
+  height: 300px;
 }

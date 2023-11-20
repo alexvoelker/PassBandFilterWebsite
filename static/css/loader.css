@@ -10,6 +10,14 @@
     margin: auto;
 }
 
+.off-centered-text{
+  position: fixed;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    color: rgba(71,71,71,0.63);
+}
+
 /* outer part */
 .loader {
     width: 100px;

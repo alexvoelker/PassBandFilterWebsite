@@ -3,5 +3,7 @@ Testing/
 teleporthq_link.txt
 *.jpg
 __pycache__
-/flask_session/
 flask_secret_key
+flask_session
+image_responses/*
+/flask_session/

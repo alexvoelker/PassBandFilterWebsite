@@ -19,36 +19,39 @@ Session(app)
 
 API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
+def change_filter_request(id:str, data: dict)-> bytes:
+    out = requests.get(API_URL + f"/v2/fetch?id={id}&filter={data['filterType']}&contrast={data['contrastLevel']}")
+
+    return out.content
+
+
+
 
 def new_API_request(data: dict) -> str:
     """Performs an API request to the backend. Returns the file name of the created image."""
 
-    request_data = {
-        "Command": "New",
-        "Max Cloud Coverage": data['maxCloud'],
-        "GeoJson": data['GeoJson'],
-        "Filter": data['filterType'],
-        "Boost Contrast": data['contrastLevel'],
-    }
-
     # Validate request data input
-    if not (isinstance(request_data["Max Cloud Coverage"], float)
-            and isinstance(request_data["Filter"], str)
-            and isinstance(request_data["Boost Contrast"], float)):
+    if not (isinstance(data["maxCloud"], float)
+            and isinstance(data["filterType"], str)
+            and isinstance(data["contrastLevel"], float)):
         return ''
 
-    # make request
-    out = requests.post(API_URL + "/v1", json=request_data, timeout=None)
-    out_data = json.loads(out.content)
+    request_data = {
+        "Max Cloud Coverage": data['maxCloud'],
+        "GeoJson": data['GeoJson'],
+    }
 
-    # base64 decode image
-    image_decoded = base64.b64decode(out_data['image'])
+    # make request
+    out = requests.post(API_URL + "/v2", json=request_data, timeout=None)
+
+    id = json.loads(out.content)['id']
+    image = change_filter_request(id, data)
 
     # uncompress image
-    image_uncompressed = lzma.decompress(image_decoded)
+    image_uncompressed = lzma.decompress(image)
 
     # save to file
-    folder = f"image_responses/{out_data['id']}/"
+    folder = f"image_responses/{id}/"
     file_name = f"{data['filterType']}.jpg"
     d = f"static/{folder}"
 
