@@ -9,7 +9,7 @@ const facts = [
 	"\"Hello there!\"",
 	"In the US, $282 billion is generated in goods and services by the ocean",
 	"The ocean might know Obama's lastname...",
-	"What time it it again?",
+	"What time is it again?",
 	"c̵̰̣͚̞̤̲̣̺͑̋̃͑͠o̵̢̢͍̟̙̲̹̘̲̟͗́̊̓̇̈̌͆̂̊̅́́̒̋͘ͅͅö̵́͜k̸̦̮̰̮̼̯̓͘͝ī̸̧̧̤̯̩̰̜͓̮͉͓̗̻̮͗̌̊͝ͅe̶̙̥̫̯̬̼̣̘͉̱̘̖̩̳͕͇̅͐̀̐̍̎ͅ"
 ]
 
