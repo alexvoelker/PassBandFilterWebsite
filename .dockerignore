@@ -4,3 +4,4 @@ Testing/
 teleporthq_link.txt
 *.jpg
 __pycache__
+/flask_session/

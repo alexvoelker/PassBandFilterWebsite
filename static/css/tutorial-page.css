@@ -1,0 +1,74 @@
+.tutorial-page-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: flex-start;
+  background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F62%2FVermont_night_sky_stargazing.JPG&f=1&nofb=1&ipt=59f3f0bf7f7fda6628a43c52c062a881f1434c40647b05763feae0420bb47aa4&ipo=images');
+}
+.tutorial-page-container1 {
+  width: 782px;
+  height: 205px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.tutorial-page-text {
+  color: var(--dl-color-gray-white);
+  width: auto;
+  height: auto;
+  font-size: 30px;
+  max-width: auto;
+  min-width: auto;
+  max-height: auto;
+  min-height: auto;
+  line-height: 5.5;
+  letter-spacing: 5.5px;
+  text-transform: uppercase;
+}
+.tutorial-page-container2 {
+  width: 379px;
+  height: 620px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.tutorial-page-text01 {
+  top: -218px;
+  left: 0px;
+  color: var(--dl-color-gray-background1);
+  right: 0px;
+  width: 379px;
+  height: 846px;
+  margin: auto;
+  position: absolute;
+}
+.tutorial-page-text24 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text27 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text30 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text33 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text36 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text39 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text42 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-navlink {
+  text-decoration: none;
+}
