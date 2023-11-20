@@ -1,0 +1,2 @@
+!include:.gitignore
+!flask_secret_key
