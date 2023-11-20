@@ -32,31 +32,21 @@
 }
 .tutorial-page-container2 {
   width: 379px;
-  height: 846px;
+  height: 620px;
   display: flex;
   position: relative;
   align-items: flex-start;
   flex-direction: column;
 }
 .tutorial-page-text01 {
-  top: -1px;
-  left: -2px;
+  top: -218px;
+  left: 0px;
   color: var(--dl-color-gray-background1);
+  right: 0px;
   width: 379px;
   height: 846px;
+  margin: auto;
   position: absolute;
-}
-.tutorial-page-text12 {
-  color: var(--dl-color-gray-background1);
-}
-.tutorial-page-text15 {
-  color: var(--dl-color-gray-background1);
-}
-.tutorial-page-text18 {
-  color: var(--dl-color-gray-background1);
-}
-.tutorial-page-text21 {
-  color: var(--dl-color-gray-background1);
 }
 .tutorial-page-text24 {
   color: var(--dl-color-gray-background1);
@@ -66,4 +56,19 @@
 }
 .tutorial-page-text30 {
   color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text33 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text36 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text39 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-text42 {
+  color: var(--dl-color-gray-background1);
+}
+.tutorial-page-navlink {
+  text-decoration: none;
 }

@@ -201,7 +201,6 @@
   justify-content: center;
 }
 .home-header {
-  color: #d20bec;
   font-size: 90px;
   align-self: center;
   font-style: normal;
@@ -209,9 +208,10 @@
   font-family: "Cormorant Infant";
   font-weight: 700;
   line-height: 90px;
+  background-color: rgba(255, 255, 255, 0.55);
 }
 .home-caption {
-  color: #d20bec;
+  color: rgb(0, 0, 0);
   font-size: 20px;
   max-width: 600px;
   align-self: center;
@@ -219,6 +219,7 @@
   font-family: "Georgia";
   line-height: 30px;
   text-transform: capitalize;
+  background-color: rgba(255, 255, 255, 0.55);
 }
 .home-border {
   width: 100%;
@@ -258,12 +259,13 @@
 }
 @media(max-width: 1600px) {
   .home-header {
-    color: rgb(210, 11, 236);
+    color: #000000;
     font-size: 90px;
     font-style: normal;
     font-family: Cormorant Infant;
     font-weight: 700;
     line-height: 90px;
+    background-color: rgba(255, 255, 255, 0.55);
   }
 }
 @media(max-width: 1200px) {
@@ -280,10 +282,13 @@
     background-color: rgba(13, 1, 133, 0);
   }
   .home-header {
-    color: #d20bec;
-  }
-  .home-text05 {
-    font-family: Oxygen;
+    color: rgb(0, 0, 0);
+    font-size: 90px;
+    font-style: normal;
+    font-family: Cormorant Infant;
+    font-weight: 700;
+    line-height: 90px;
+    background-color: rgba(255, 255, 255, 0.55);
   }
   .home-button {
     width: 50%;
@@ -303,7 +308,17 @@
     gap: var(--dl-space-space-oneandhalfunits);
   }
   .home-header {
-    color: #d20bec;
+    color: rgb(0, 0, 0);
+    font-size: 90px;
+    font-style: normal;
+    font-family: Cormorant Infant;
+    font-weight: 700;
+    line-height: 90px;
+    text-transform: capitalize;
+    background-color: rgba(255, 255, 255, 0.55);
+  }
+  .home-text05 {
+    font-family: Oxygen;
   }
 }
 @media(max-width: 767px) {

@@ -1,0 +1,41 @@
+/* helper to center elements */
+.center {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/* outer part */
+.loader {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border: solid;
+    border-radius: 50%;
+    animation: roll 1.5s ease-in-out infinite alternate;
+  }
+
+/* inner part */
+  .loader:after{
+    content:"";
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    border: 5px solid ;
+    border-color: #ff3d00 transparent;
+  }
+
+/* animation */
+  @keyframes roll {
+    0% {
+      transform: translateX(-200%) rotate(0deg) ;
+    }
+    100% {
+      transform:  translateX(200%) rotate(360deg);
+    }
+  }

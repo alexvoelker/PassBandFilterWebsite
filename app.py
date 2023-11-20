@@ -1,13 +1,21 @@
+from flask import Flask, render_template, abort, session
+from flask import request as flask_request
+from flask_session import Session
+import requests
 import base64
 import json
 import lzma
 import os
 
-from flask import Flask, render_template, abort
-from flask import request as flask_request
-import requests
-
 app = Flask(__name__)
+
+SESSION_TYPE = 'filesystem'
+
+with open('flask_secret_key', 'r') as FSK:
+    app.secret_key = FSK.read()
+
+app.config.from_object(__name__)
+Session(app)
 
 API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
@@ -77,16 +85,24 @@ def input_page():
                 'maxCloud': float(flask_request.form['maxCloud']),
                 'GeoJson': geo_json_data}
 
-        image = new_API_request(data)
-
-        if len(image) == 0:  # Handling Invalid Inputs
-            abort(400)
-
-        # TODO get website to display full image
-        # TODO add user's image settings to response page
-        return render_template('response.html', image=image)
+        # Save this request data as a cookie to be used in the image request later
+        session['request_data'] = data
+        return render_template('loading.html')
     elif flask_request.method == "GET":
         return render_template('input-page.html')
+
+
+@app.route('/input-page/complete/')
+def load_image():
+    data = session.get('request_data')
+    image = new_API_request(data)
+
+    if len(image) == 0:  # Handling Invalid Inputs
+        abort(400)
+
+    # TODO get website to display full image
+    # TODO add user's image settings to response page
+    return render_template('response.html', image=image)
 
 
 @app.route('/tutorial-page/', methods=["GET"])
