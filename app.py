@@ -19,12 +19,11 @@ Session(app)
 
 API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
-def change_filter_request(id:str, data: dict)-> bytes:
+
+def change_filter_request(id: str, data: dict) -> bytes:
     out = requests.get(API_URL + f"/v2/fetch?id={id}&filter={data['filterType']}&contrast={data['contrastLevel']}")
 
     return out.content
-
-
 
 
 def new_API_request(data: dict) -> str:
