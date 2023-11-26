@@ -19,12 +19,11 @@ Session(app)
 
 API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
-def change_filter_request(id:str, data: dict)-> bytes:
+
+def change_filter_request(id: str, data: dict) -> bytes:
     out = requests.get(API_URL + f"/v2/fetch?id={id}&filter={data['filterType']}&contrast={data['contrastLevel']}")
 
     return out.content
-
-
 
 
 def new_API_request(data: dict) -> str:
@@ -44,14 +43,14 @@ def new_API_request(data: dict) -> str:
     # make request
     out = requests.post(API_URL + "/v2", json=request_data, timeout=None)
 
-    id = json.loads(out.content)['id']
-    image = change_filter_request(id, data)
+    image_id = json.loads(out.content)['id']
+    image = change_filter_request(image_id, data)
 
     # uncompress image
     image_uncompressed = lzma.decompress(image)
 
     # save to file
-    folder = f"image_responses/{id}/"
+    folder = f"image_responses/{image_id}/"
     file_name = f"{data['filterType']}.jpg"
     d = f"static/{folder}"
 
@@ -68,13 +67,9 @@ def new_API_request(data: dict) -> str:
 def generate_GEO_JSON(x1: float, y1: float, x2: float, y2: float):
     json_data = {
         "type": "FeatureCollection",
-        "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates": [
-            [[y1, x1],
-             [y1, x2],
-             [y2, x2],
-             [y2, x1],
-             [y1, x1]
-             ]], "type": "Polygon"}}]}
+        "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates":
+                                                                            [[[y1, x1], [y1, x2], [y2, x2], [y2, x1],
+                                                                              [y1, x1]]], "type": "Polygon"}}]}
     return json_data
 
 
@@ -103,9 +98,7 @@ def load_image():
     if len(image) == 0:  # Handling Invalid Inputs
         abort(400)
 
-    # TODO get website to display full image
-    # TODO add user's image settings to response page
-    return render_template('response.html', image=image)
+    return render_template('response.html', image=image, data=data)
 
 
 @app.route('/tutorial-page/', methods=["GET"])
