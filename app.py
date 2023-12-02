@@ -24,6 +24,8 @@ def change_filter_request(id: str, data: dict) -> bytes:
     out = requests.get(API_URL + f"/v3/fetch?id={id}&filter={data['filterType']}&contrast={data['contrastLevel']}", stream=True)
     data = b''.join(out.iter_content())
 
+    return data
+
 def new_API_request(data: dict) -> str:
     """Performs an API request to the backend. Returns the file name of the created image."""
 
