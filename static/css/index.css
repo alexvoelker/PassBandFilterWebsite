@@ -60,7 +60,7 @@
 }
 
 .home-navbar {
-    width: 1497px;
+    width: auto;
     display: flex;
     position: relative;
     max-width: 1440px;
@@ -234,11 +234,13 @@
 .home-header {
     font-size: 90px;
     align-self: center;
-    font-style: normal;
+
     text-align: center;
-    font-family: "Cormorant Infant";
-    font-weight: 700;
+    font-family: "Montserrat";
+    font-weight: 600;
     line-height: 90px;
+    text-transform: capitalize;
+  
     background-color: rgba(255, 255, 255, 0.55);
 }
 
@@ -248,7 +250,10 @@
     max-width: 600px;
     align-self: center;
     text-align: center;
-    font-family: "Georgia";
+
+    font-family: "Montserrat";
+    font-weight: 600;
+
     line-height: 30px;
     text-transform: capitalize;
     background-color: rgba(255, 255, 255, 0.55);
@@ -268,14 +273,19 @@
 }
 
 .home-button {
-    width: 208px;
+    width: 50%;
+    height: 74px;
     line-height: 1.15;
+    background-color: var(--dl-color-primary-300);
 }
 
 .home-navlink {
+    font-size: 20px;
     text-align: center;
+    font-family: "Montserrat";
     line-height: 1.5;
     letter-spacing: 1.5px;
+    text-transform: uppercase;
     text-decoration: none;
 }
 
@@ -298,12 +308,13 @@
 
 @media (max-width: 1600px) {
     .home-header {
-        color: #000000;
+
         font-size: 90px;
-        font-style: normal;
-        font-family: Cormorant Infant;
-        font-weight: 700;
+        font-family: Montserrat;
+        font-weight: 600;
         line-height: 90px;
+        text-transform: capitalize;
+
         background-color: rgba(255, 255, 255, 0.55);
     }
 }
@@ -323,28 +334,6 @@
         height: 844px;
         background-color: rgba(13, 1, 133, 0);
     }
-
-    .home-header {
-        color: rgb(0, 0, 0);
-        font-size: 90px;
-        font-style: normal;
-        font-family: Cormorant Infant;
-        font-weight: 700;
-        line-height: 90px;
-        background-color: rgba(255, 255, 255, 0.55);
-    }
-
-    .home-button {
-        width: 50%;
-        height: 74px;
-        background-color: var(--dl-color-primary-300);
-    }
-
-    .home-navlink {
-        font-size: 20px;
-        text-transform: uppercase;
-    }
-
     .home-footer {
         background-color: #0d0185;
     }
@@ -356,18 +345,23 @@
     }
 
     .home-header {
-        color: rgb(0, 0, 0);
         font-size: 90px;
-        font-style: normal;
-        font-family: Cormorant Infant;
-        font-weight: 700;
+        font-family: Montserrat;
+        font-weight: 600;
         line-height: 90px;
         text-transform: capitalize;
         background-color: rgba(255, 255, 255, 0.55);
     }
 
-    .home-text05 {
-        font-family: Oxygen;
+
+    .home-caption {
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-family: Montserrat;
+        font-weight: 600;
+        line-height: 30px;
+        text-transform: capitalize;
+        background-color: rgba(255, 255, 255, 0.55);
     }
 }
 
@@ -378,6 +372,7 @@
     }
 
     .home-navbar {
+        width: auto;
         padding-top: var(--dl-space-space-twounits);
         padding-bottom: var(--dl-space-space-twounits);
     }
@@ -428,11 +423,6 @@
 
     .home-heading {
         gap: var(--dl-space-space-halfunit);
-    }
-
-    .home-header {
-        font-size: 40px;
-        line-height: 40px;
     }
 
     .home-caption {

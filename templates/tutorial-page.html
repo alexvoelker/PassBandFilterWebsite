@@ -105,6 +105,12 @@
     />
     <link
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+            data-tag="font"
+    />
+    <link
+            rel="stylesheet"
+
             href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
             data-tag="font"
     />
@@ -133,13 +139,20 @@
             href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
             data-tag="font"
     />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+            data-tag="font"
+    />
     <!--This is the head section-->
     <!-- <style> ... </style> -->
 </head>
 <body>
-<link rel="stylesheet" href="../static/css/style.css"/>
+<link href="{{ url_for('static', filename="css/style.css") }}" rel="stylesheet"/>
+
 <div>
-    <link href="../static/css/tutorial-page.css" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename="css/tutorial-page.css") }}" rel="stylesheet"/>
+
 
     <div class="tutorial-page-container">
         <div class="tutorial-page-container1">
@@ -147,18 +160,6 @@
         </div>
         <div class="tutorial-page-container2">
           <span class="tutorial-page-text01">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
             <span>
               The first step is to generate a picture by pressing the generate
               button.&nbsp;
@@ -167,7 +168,7 @@
             <br/>
             <span>
               After continuing to the input page. From there you can either use
-              a map to pin point there you want to look. Or you can input the
+              a map to pinpoint there you want to look. Or you can input the
               longitude and latitude of a certain location.&nbsp;
             </span>
             <br/>
@@ -178,48 +179,58 @@
               conducted.&nbsp;
             </span>
             <br/>
-            <br/>
+          </span>
+        </div>
+        <div class="tutorial-page-container3">
+            <h2 class="tutorial-page-text10">Max Cloud Coverage</h2>
+            <span class="tutorial-page-text11">
             <span>
-              Max cloud coverage - Max percentage the image is covered by a
-              cloud.
+              The maximum percentage the image is covered by a cloud. Needs to
+              be an integer or decimal number.
             </span>
-            <br class="tutorial-page-text24"/>
-            <br/>
-            <span>
-              Boost contrast level - Scalar multiplier for image contrast level.
-            </span>
-            <br class="tutorial-page-text27"/>
-            <br/>
-            <span>Filters - Pixel combination algorithm</span>
-            <br class="tutorial-page-text30"/>
-            <br/>
-            <span>
-              True Color - True representation of colors if a dslr camera was
-              taking an image in space
-            </span>
-            <br class="tutorial-page-text33"/>
-            <br/>
-            <span>
-              False Color - Red channel was mixed with infrared helping to
-              reveal planet density
-            </span>
-            <br class="tutorial-page-text36"/>
-            <br/>
-            <span>
-              NDWI - Normalized Density Water Index highlights areas of high
-              water content (e.g plants)
-            </span>
-            <br class="tutorial-page-text39"/>
-            <br/>
-            <span>
-              SWIR - Short wave infrared highlights areas of water density
-              (darker in areas of ice and light in ares of no water).
-            </span>
-            <br class="tutorial-page-text42"/>
             <br/>
           </span>
         </div>
-        <a href="{{ url_for('home_page') }}" class="tutorial-page-navlink button">Back</a>
+        <div class="tutorial-page-container4">
+            <h2 class="tutorial-page-text14">Boost Contrast level</h2>
+            <span class="tutorial-page-text15">
+            A scalar multiplier for image contrast level. Needs to be an integer
+            or decimal number.
+          </span>
+        </div>
+        <div class="tutorial-page-container5">
+            <h1 class="tutorial-page-text16">Filters</h1>
+            <span class="tutorial-page-text17">
+            <span>
+              Each filter corresponds to a pixel combination algorithm. They are
+              implemented as follows.
+            </span>
+            <br/>
+            <br/>
+          </span>
+            <h2 class="tutorial-page-heading">True Color</h2>
+            <span class="tutorial-page-text21">
+            True representation of colors if a dslr camera was taking an image
+            in space
+          </span>
+            <h2 class="tutorial-page-heading1">False Color</h2>
+            <span class="tutorial-page-text22">
+            Red channel was mixed with infrared helping to reveal planet density
+          </span>
+            <h2 class="tutorial-page-heading2">NDWI</h2>
+            <span class="tutorial-page-text23">
+            Normalized Density Water Index highlights areas of high water
+            content (e.g plants)
+          </span>
+            <h2 class="tutorial-page-heading3">SWIR</h2>
+            <span class="tutorial-page-text24">
+            Short wave infrared highlights areas of water density (darker in
+            areas of ice and light in ares of no water).
+          </span>
+        </div>
+        <button onclick="window.location.href='{{ url_for('home_page') }}';">
+            <a class="tutorial-page-navlink button">Back</a>
+        </button>
     </div>
 </div>
 <script
@@ -227,5 +238,4 @@
         src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
 ></script>
 </body>
-
 </html>
