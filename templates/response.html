@@ -102,12 +102,58 @@
     <link href="{{ url_for('static', filename='css/response.css') }}" rel="stylesheet"/>
     <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet"/>
 
-    <div id="image-container">
-        <img
-                id="myimage"
-                src="{{ url_for('static', filename=image) }}"
-                class="home1-image"
-                alt="Hmmmmm">
+    <div class="home1-container">
+        <div class="home-container01"></div>
+        <div class="home1-container08">
+            <h1 class="home1-text4">Response Data</h1>
+            <img
+                    id="myimage"
+                    src="{{ url_for('static', filename=image) }}"
+                    alt="image"
+                    class="home1-image"/>
+{#            <div id="myresult" class="img-zoom-result"></div>#}
+        </div>
+        <div class="home-container07">
+            <button
+                    type="button"
+                    class="home1-button button"
+                    style="margin-top: 30px; margin-bottom: 30px; color: var(--dl-color-gray-900);"
+                    onclick="window.location.href='{{ url_for('static', filename=image) }}';">
+                View Full Image
+            </button>
+        </div>
+        <div class="home-container07">
+            <button
+                    type="button"
+                    id="settingsViewToggle"
+                    class="home1-button button"
+                    onclick="toggleView('settingsView')"
+                    style="margin-top: 30px; color: var(--dl-color-gray-900);">
+                View Your Input Options
+            </button>
+            <div id="settingsView" style="margin-top: 20px; margin-bottom: 20px;" hidden>
+                <p>Max Cloud Coverage: {{ data.maxCloud }}</p>
+                <p>Boost Contrast Level: {{ data.contrastLevel }}</p>
+                <p>Filter: {{ data.filterType }}</p>
+                <p>Coordinates:</p>
+                <p>X1: {{ data.GeoJson["features"][0]["geometry"]["coordinates"][0][0][1] }}</p>
+                <p>Y1: {{ data.GeoJson["features"][0]["geometry"]["coordinates"][0][0][0] }}</p>
+                <p>X2: {{ data.GeoJson["features"][0]["geometry"]["coordinates"][0][2][1] }}</p>
+                <p>Y2: {{ data.GeoJson["features"][0]["geometry"]["coordinates"][0][2][0] }}</p>
+            </div>
+        </div>
+        <div class="home-container07">
+            <button
+                    type="button"
+                    id="submitButton"
+                    class="home1-button button"
+                    onclick="window.location.href='{{ url_for('home_page') }}';">
+                Back To Home
+            </button>
+        </div>
     </div>
+    <div class="home1-container09">
+    </div>
+</div>
 </body>
 </html>

@@ -40,7 +40,7 @@ function change_fact() {
 
 }
 
-let currentZoom = 1;
+let zoom = 1;
 let minZoom = 1;
 let stepSize = 0.1;
 let container = null;
@@ -94,20 +94,35 @@ function scroll_lock() {
         };
 }
 
+function wait_till_load(){
+    container = document.getElementById('image-container');
+
+    if (container !== null) {
+        container.addEventListener('wheel', function(e) {
+            // Get the scroll delta
+            const delta = e.deltaY;
+
+            // Zoom in or out
+            zoom -= delta / 100;
+
+            // Limit the zoom level
+            zoom = Math.max(0.5, Math.min(2, zoom));
+
+             // Set the image transform
+            container.style.transform = `scale(${zoom})`;
+
+        });
+    }else {
+        setTimeout(wait_till_load,1)
+    }
+}
+
 function fact_loop() {
     sleep(8000).then(r => change_fact())
 }
 
-setTimeout(load, 0);
+setTimeout(load, 8);
 fact_loop();
 
-while (container === null) {
-    container = document.getElementById('image-container');
-    co
-}
+setTimeout(wait_till_load, 8);
 
-container.addEventListener('wheel', function (event) {
-    // Zoom in or out based on the scroll direction
-    let direction = event.deltaY > 0 ? -1 : 1;
-    zoomImage(direction);
-});
