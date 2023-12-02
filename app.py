@@ -50,7 +50,7 @@ def new_API_request(data: dict) -> str:
     image_uncompressed = lzma.decompress(image)
 
     # save to file
-    folder = f"image_responses/{id}/"
+    folder = f"image_responses/{image_id}/"
     file_name = f"{data['filterType']}.webp"
 
     d = f"static/{folder}"
