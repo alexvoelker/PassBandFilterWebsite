@@ -234,11 +234,13 @@
 .home-header {
     font-size: 90px;
     align-self: center;
+
     text-align: center;
     font-family: "Montserrat";
     font-weight: 600;
     line-height: 90px;
     text-transform: capitalize;
+  
     background-color: rgba(255, 255, 255, 0.55);
 }
 
@@ -248,8 +250,10 @@
     max-width: 600px;
     align-self: center;
     text-align: center;
+
     font-family: "Montserrat";
     font-weight: 600;
+
     line-height: 30px;
     text-transform: capitalize;
     background-color: rgba(255, 255, 255, 0.55);
@@ -289,10 +293,6 @@
     text-decoration: none;
 }
 
-.home-text09 {
-    font-family: "Montserrat";
-}
-
 .home-footer {
     width: 100%;
     border: 2px dashed rgba(120, 120, 120, 0.4);
@@ -308,11 +308,13 @@
 
 @media (max-width: 1600px) {
     .home-header {
+
         font-size: 90px;
         font-family: Montserrat;
         font-weight: 600;
         line-height: 90px;
         text-transform: capitalize;
+
         background-color: rgba(255, 255, 255, 0.55);
     }
 }
@@ -332,7 +334,6 @@
         height: 844px;
         background-color: rgba(13, 1, 133, 0);
     }
-
     .home-footer {
         background-color: #0d0185;
     }
@@ -351,6 +352,7 @@
         text-transform: capitalize;
         background-color: rgba(255, 255, 255, 0.55);
     }
+
 
     .home-caption {
         color: rgb(0, 0, 0);

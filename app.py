@@ -20,11 +20,11 @@ Session(app)
 API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
 
-def change_filter_request(id: str, data: dict) -> bytes:
-    out = requests.get(API_URL + f"/v2/fetch?id={id}&filter={data['filterType']}&contrast={data['contrastLevel']}")
+def change_filter_request(image_id: str, data: dict) -> bytes:
+    out = requests.get(API_URL + f"/v3/fetch?image_id={image_id}&filter={data['filterType']}&contrast={data['contrastLevel']}", stream=True)
+    data = b''.join(out.iter_content())
 
-    return out.content
-
+    return data
 
 def new_API_request(data: dict) -> str:
     """Performs an API request to the backend. Returns the file name of the created image."""
@@ -41,7 +41,12 @@ def new_API_request(data: dict) -> str:
     }
 
     # make request
-    out = requests.post(API_URL + "/v2", json=request_data, timeout=None)
+    out = requests.post(API_URL + "/v3", json=request_data, timeout=None)
+
+    if out.status_code == 500:
+        # no image could be found with the parameters
+        print("error request code 500")
+        return ''
 
     image_id = json.loads(out.content)['id']
     image = change_filter_request(image_id, data)
@@ -51,7 +56,8 @@ def new_API_request(data: dict) -> str:
 
     # save to file
     folder = f"image_responses/{image_id}/"
-    file_name = f"{data['filterType']}.jpg"
+    file_name = f"{data['filterType']}.webp"
+
     d = f"static/{folder}"
 
     if not os.path.exists(d):

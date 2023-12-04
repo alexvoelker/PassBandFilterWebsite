@@ -11,15 +11,20 @@
   background-repeat: space;
   background-position: center;
 }
+
 .tutorial-page-container1 {
+
   width: 35%;
   height: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+
 }
+
 .tutorial-page-text {
+
   color: var(--dl-color-gray-white);
   width: auto;
   height: auto;
@@ -35,7 +40,9 @@
   letter-spacing: 5.5px;
   text-transform: uppercase;
 }
+
 .tutorial-page-container2 {
+
   width: 35%;
   height: auto;
   display: flex;
@@ -43,6 +50,7 @@
   align-items: flex-start;
   flex-direction: column;
 }
+
 .tutorial-page-text01 {
   color: var(--dl-color-gray-background1);
   width: auto;
@@ -155,6 +163,7 @@
 .tutorial-page-text24 {
   color: var(--dl-color-gray-background1);
 }
+
 .tutorial-page-navlink {
   margin-top: var(--dl-space-space-twounits);
   margin-bottom: var(--dl-space-space-twounits);
