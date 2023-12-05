@@ -7,7 +7,7 @@
     flex-direction: column;
     background-size: cover;
     justify-content: flex-start;
-    background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F62%2FVermont_night_sky_stargazing.JPG&f=1&nofb=1&ipt=59f3f0bf7f7fda6628a43c52c062a881f1434c40647b05763feae0420bb47aa4&ipo=images');
+    background-image: url('../tutorial/background.JPG');
     background-repeat: space;
     background-position: center;
 }

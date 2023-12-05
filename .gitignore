@@ -7,4 +7,5 @@ flask_secret_key
 flask_session
 image_responses/*
 /flask_session/
-!/static/background.jpg
+!/static/home/background.jpg
+!/static/tutorial/background.JPG

@@ -41,7 +41,7 @@
     flex-direction: column;
     background-size: cover;
     justify-content: center;
-    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fd0%2FGOES_8_Spac0255.jpg&f=1&nofb=1&ipt=978ad09b9d1ae8c7b4e60dc66ae47d45ba1df15a0e060acdacf362af0ba47b93&ipo=images');
+    background-image: url("../home/background.jpg");
 }
 
 .home-video1 {
