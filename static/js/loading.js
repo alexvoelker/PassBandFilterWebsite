@@ -94,11 +94,11 @@ function scroll_lock() {
         };
 }
 
-function wait_till_load(){
+function wait_till_load() {
     container = document.getElementById('image-container');
 
     if (container !== null) {
-        container.addEventListener('wheel', function(e) {
+        container.addEventListener('wheel', function (e) {
             // Get the scroll delta
             const delta = e.deltaY;
 
@@ -108,12 +108,12 @@ function wait_till_load(){
             // Limit the zoom level
             zoom = Math.max(0.5, Math.min(2, zoom));
 
-             // Set the image transform
+            // Set the image transform
             container.style.transform = `scale(${zoom})`;
 
         });
-    }else {
-        setTimeout(wait_till_load,1)
+    } else {
+        setTimeout(wait_till_load, 1)
     }
 }
 

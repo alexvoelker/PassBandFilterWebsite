@@ -240,7 +240,7 @@
     font-weight: 600;
     line-height: 90px;
     text-transform: capitalize;
-  
+
     background-color: rgba(255, 255, 255, 0.55);
 }
 
@@ -334,6 +334,7 @@
         height: 844px;
         background-color: rgba(13, 1, 133, 0);
     }
+
     .home-footer {
         background-color: #0d0185;
     }
