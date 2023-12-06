@@ -5,7 +5,7 @@ teleporthq_link.txt
 __pycache__
 flask_secret_key
 flask_session
-image_responses/*
+/static/image_responses/*
 /flask_session/
 !/static/home/background.jpg
 !/static/tutorial/background.JPG
