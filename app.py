@@ -2,7 +2,6 @@ from flask import Flask, render_template, abort, session
 from flask import request as flask_request
 from flask_session import Session
 import requests
-import base64
 import json
 import lzma
 import os
@@ -21,10 +20,13 @@ API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
 
 def change_filter_request(image_id: str, data: dict) -> bytes:
-    out = requests.get(API_URL + f"/v3/fetch?id={image_id}&filter={data['filterType']}&contrast={data['contrastLevel']}", timeout=None, stream=True)
+    out = requests.get(
+        API_URL + f"/v3/fetch?id={image_id}&filter={data['filterType']}&contrast={data['contrastLevel']}", timeout=None,
+        stream=True)
     data = b''.join(out.iter_content())
 
     return data
+
 
 def new_API_request(data: dict) -> str:
     """Performs an API request to the backend. Returns the file name of the created image."""

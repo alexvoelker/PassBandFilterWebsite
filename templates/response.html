@@ -90,6 +90,8 @@
 
         }
     </style>
+
+    <link rel="icon" type="image/x-icon" href="/static/fav.ico">
     <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
@@ -111,7 +113,8 @@
                     src="{{ url_for('static', filename=image) }}"
                     alt="image"
                     class="home1-image"/>
-{#            <div id="myresult" class="img-zoom-result"></div>#}
+            <h3 class="home1-text4">Is your image dark and has gray bars?</h3>
+            <h4 class="home1-text4">Try changing the settings to be less restrictive like raising the max cloud coverage. This results from the picture being taken at night or in an area that can't be seen by the satellite. </h4>
         </div>
         <div class="home-container07">
             <button
