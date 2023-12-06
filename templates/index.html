@@ -157,135 +157,123 @@
                     <video src="" class="home-video1"></video>
                 </div>
                 <div class="home-content">
-                    <header data-thq="thq-navbar" class="home-navbar">
-                        <div data-thq="thq-burger-menu" class="home-menu">
-                            <div class="home-links"></div>
-                            <button class="home-hamburger button">
-                                <svg viewBox="0 0 1024 1024" class="home-icon">
-                                    <path
-                                            d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
-                                    ></path>
-                                </svg>
-                            </button>
+                    <div class="home-center">
+                        <div class="home-heading">
+                            <h1 class="home-header">
+                                <span>SatDive</span>
+                                <br/>
+                            </h1>
+                            <p class="home-caption">
+                                Access to the ocean. Anytime, anywhere.
+                            </p>
                         </div>
-                </header>
-                <div class="home-center">
-                    <div class="home-heading">
-                        <h1 class="home-header">
-                            <span>SatDive</span>
-                            <br/>
-                        </h1>
-                        <p class="home-caption">
-                            Access to the ocean. Anytime, anywhere.
-                        </p>
-                    </div>
-                    <div class="home-border"></div>
-                    <button
-                            id="generatebutton"
-                            type="button"
-                            class="home-button button"
-                            onclick="window.location.href='{{ url_for('input_page') }}';"
-                    >
-                        <a class="home-navlink">
-                            <span>Generate</span>
-                        </a>
-                    </button>
-                    <button onclick="window.location.href='{{ url_for('tutorial_page') }}';">
-                        <a class="home-navlink1 button">
+                        <div class="home-border"></div>
+                        <button
+                                id="generatebutton"
+                                type="button"
+                                class="home-button button"
+                                onclick="window.location.href='{{ url_for('input_page') }}';"
+                        >
+                            <a class="home-navlink">
+                                <span>Generate</span>
+                            </a>
+                        </button>
+                        <button onclick="window.location.href='{{ url_for('tutorial_page') }}';">
+                            <a class="home-navlink1 button">
                           <span class="home-text09">
                             <span>How to Use</span>
                           </span>
-                        </a>
-                    </button>
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
-    </div>
-    </section>
-    <section class="home-footer"></section>
-    <div>
-        <div class="home-container4">
-            <script>
-                function initAccordion() {
-                    /*
-                    Accordion - Code Embed
-                    */
-                    const accordionContainers = document.querySelectorAll(
-                        '[data-role='
-                    accordion - container
-                    ']'
-                )
-                    ; // All accordion containers
-                    const accordionContents = document.querySelectorAll(
-                        '[data-role='
-                    accordion - content
-                    ']'
-                )
-                    ; // All accordion content
-                    const accordionIconsClosed = document.querySelectorAll(
-                        '[data-role='
-                    accordion - icon - closed
-                    ']'
-                )
-                    ; // All accordion closed icons
-                    const accordionIconsOpen = document.querySelectorAll(
-                        '[data-role='
-                    accordion - icon - open
-                    ']'
-                )
-                    ; // All accordion open icons
+        </section>
+        <section class="home-footer"></section>
+        <div>
+            <div class="home-container4">
+                <script>
+                    function initAccordion() {
+                        /*
+                        Accordion - Code Embed
+                        */
+                        const accordionContainers = document.querySelectorAll(
+                            '[data-role='
+                        accordion - container
+                        ']'
+                    )
+                        ; // All accordion containers
+                        const accordionContents = document.querySelectorAll(
+                            '[data-role='
+                        accordion - content
+                        ']'
+                    )
+                        ; // All accordion content
+                        const accordionIconsClosed = document.querySelectorAll(
+                            '[data-role='
+                        accordion - icon - closed
+                        ']'
+                    )
+                        ; // All accordion closed icons
+                        const accordionIconsOpen = document.querySelectorAll(
+                            '[data-role='
+                        accordion - icon - open
+                        ']'
+                    )
+                        ; // All accordion open icons
 
-                    accordionContents.forEach((accordionContent) => {
-                        accordionContent.style.display = 'none'; //Hides all accordion contents
-                    });
-
-                    accordionIconsClosed.forEach((icon) => {
-                        icon.style.display = 'flex';
-                    });
-
-                    accordionIconsOpen.forEach((icon) => {
-                        icon.style.display = 'none';
-                    });
-
-                    accordionContainers.forEach((accordionContainer, index) => {
-                        if (accordionContainer.classList.contains('initialised')) {
-                            return;
-                        }
-
-                        accordionContainer.classList.add('initiased');
-
-                        accordionContainer.addEventListener('click', () => {
-                            if (accordionContents[index].style.display === 'flex') {
-                                // If the accordion is already open, close it
-                                accordionContents[index].style.display = 'none';
-                                accordionIconsClosed[index].style.display = 'flex';
-                                accordionIconsOpen[index].style.display = 'none';
-                            } else {
-                                // If the accordion is closed, open it
-                                accordionContents.forEach((accordionContent) => {
-                                    accordionContent.style.display = 'none'; //Hides all accordion contents
-                                });
-
-                                accordionIconsClosed.forEach((accordionIcon) => {
-                                    accordionIcon.style.display = 'flex'; // Resets all icon transforms to 0deg (default)
-                                });
-
-                                accordionIconsOpen.forEach((accordionIcon) => {
-                                    accordionIcon.style.display = 'none';
-                                });
-
-                                accordionContents[index].style.display = 'flex'; // Shows accordion content
-                                accordionIconsClosed[index].style.display = 'none'; // Rotates accordion icon 180deg
-                                accordionIconsOpen[index].style.display = 'flex';
-                            }
+                        accordionContents.forEach((accordionContent) => {
+                            accordionContent.style.display = 'none'; //Hides all accordion contents
                         });
-                    });
-                }
 
-                initAccordion();
-            </script>
+                        accordionIconsClosed.forEach((icon) => {
+                            icon.style.display = 'flex';
+                        });
+
+                        accordionIconsOpen.forEach((icon) => {
+                            icon.style.display = 'none';
+                        });
+
+                        accordionContainers.forEach((accordionContainer, index) => {
+                            if (accordionContainer.classList.contains('initialised')) {
+                                return;
+                            }
+
+                            accordionContainer.classList.add('initiased');
+
+                            accordionContainer.addEventListener('click', () => {
+                                if (accordionContents[index].style.display === 'flex') {
+                                    // If the accordion is already open, close it
+                                    accordionContents[index].style.display = 'none';
+                                    accordionIconsClosed[index].style.display = 'flex';
+                                    accordionIconsOpen[index].style.display = 'none';
+                                } else {
+                                    // If the accordion is closed, open it
+                                    accordionContents.forEach((accordionContent) => {
+                                        accordionContent.style.display = 'none'; //Hides all accordion contents
+                                    });
+
+                                    accordionIconsClosed.forEach((accordionIcon) => {
+                                        accordionIcon.style.display = 'flex'; // Resets all icon transforms to 0deg (default)
+                                    });
+
+                                    accordionIconsOpen.forEach((accordionIcon) => {
+                                        accordionIcon.style.display = 'none';
+                                    });
+
+                                    accordionContents[index].style.display = 'flex'; // Shows accordion content
+                                    accordionIconsClosed[index].style.display = 'none'; // Rotates accordion icon 180deg
+                                    accordionIconsOpen[index].style.display = 'flex';
+                                }
+                            });
+                        });
+                    }
+
+                    initAccordion();
+                </script>
+            </div>
         </div>
     </div>
-</div>
 </div>
 <script
         data-section-id="navbar"

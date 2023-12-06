@@ -18,6 +18,7 @@ Session(app)
 
 API_URL = "https://tech120finalproject-ag4syvzubq-uc.a.run.app"
 
+
 def change_filter_request(image_id: str, data: dict) -> bytes:
     out = requests.get(
         API_URL + f"/v3/fetch?id={image_id}&filter={data['filterType']}&contrast={data['contrastLevel']}", timeout=None,

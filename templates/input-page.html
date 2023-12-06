@@ -259,6 +259,10 @@
                 </div>
             </form>
         </div>
+        <link href="{{ url_for('static', filename="css/tutorial-page.css") }}" rel="stylesheet"/>
+        <button onclick="window.location.href='{{ url_for('home_page') }}';">
+            <a class="tutorial-page-navlink button">Back</a>
+        </button>
     </div>
 </div>
 <script
